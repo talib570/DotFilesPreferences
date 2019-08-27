@@ -2,7 +2,10 @@
 
 # Open specified files in Sublime Text
 # "s ." will open the current directory in Sublime
-alias s='open -a "Sublime Text"'
+alias s='start sublime_text'
+alias gbp='subl "C:/Users/Talib Allauddin/.bash_profile"'
+
+alias pic='start "F:\Pictures"'
 
 
 # Color LS
@@ -13,27 +16,30 @@ alias la="ls -laF ${colorflag}" # all files inc dotfiles, in long format
 alias lsd='ls -lF ${colorflag} | grep "^d"' # only directories
 
 # Quicker navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+alias .="cd .."
+alias ..="cd ../.."
+alias ...="cd ../../.."
+alias ....="cd ../../../.."
 
 # Sites Projects
-alias bnethtml="cd ~/Desktop/Sites/Babienet/babienet-html"
-alias bnetr="cd ~/Desktop/Sites/Babienet/Remaining"
-alias bnetpsd="cd ~/Desktop/Sites/Babienet/babienet-psd"
-alias uhomehtml="cd ~/Desktop/Sites/Uhome/uhome-html"
-alias uhome="cd ~/Desktop/Sites/Uhome/uhome"
-alias digitemb="cd /Applications/XAMPP/htdocs/digitemb"
-alias mg="cd /Applications/XAMPP/htdocs/mg"
-alias usa="cd /Applications/XAMPP/htdocs/usa"
+alias htdocs="cd /c/xampp2/htdocs"
+alias ang="cd /c/xampp2/htdocs/intro2angular"
+alias digit="cd /c/xampp2/htdocs/digitemb"
+alias dui="cd /c/xampp2/htdocs/digitemb-ui"
+alias mims="cd /c/xampp2/htdocs/medical-information-management-system"
+alias pm="cd /c/xampp2/htdocs/property-manager"
 
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
 # npm install
-alias sni='sudo npm install'
+alias ni='npm install'
+alias ns='npm start'
+
+# angular
+alias ngc='ng g c '
+alias ngs='ng g s '
 
 # sails
 alias sl='sails lift'
@@ -50,7 +56,12 @@ alias gs='git status'
 alias ga='git add .'
 alias gc='git commit -m' # requires you to type a commit message
 alias gp='git push'
+alias gpo='git push origin '
 alias grm='git rm $(git ls-files --deleted)'
+alias gcb='git checkout '
+alias gnb='git checkout -b '
+alias gpd='git push -u origin development'
+alias gd='git diff '
 
 ### Prompt Colors
 # Modified version of @gf3’s Sexy Bash Prompt
@@ -104,7 +115,7 @@ function parse_git_branch() {
 # (http://en.wikipedia.org/wiki/Unicode_symbols)
 symbol="⚡ "
 
-export PS1="\[${MAGENTA}\]\u \[$RESET\]in \[$GREEN\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\]\n$symbol\[$RESET\]"
+#export PS1="\[${MAGENTA}\]\u \[${RESET}\]in \[${GREEN}\]\w\[${RESET}\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[${PURPLE}\]\$(parse_git_branch)\[${RESET}\]\n${symbol}\[${RESET}\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 
@@ -112,6 +123,3 @@ export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 # Only show the current directory's name in the tab
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
-
-# init z! (https://github.com/rupa/z)
-. ~/z.sh
